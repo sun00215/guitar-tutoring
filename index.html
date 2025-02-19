@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优质吉他课程 - 开启你的音乐之旅</title>
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#home" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+            <li><a href="#courses" data-lang-zh="课程" data-lang-en="Courses">课程</a></li>
+            <li><a href="#about" data-lang-zh="关于我" data-lang-en="About">关于我</a></li>
+            <li><a href="#contact" data-lang-zh="联系方式" data-lang-en="Contact">联系方式</a></li>
+            <li class="language-switch">
+                <button class="language-btn" data-lang-zh="语言" data-lang-en="Language">语言</button>
+                <div class="language-options">
+                    <div class="language-option" data-lang="zh">中文</div>
+                    <div class="language-option" data-lang="en">English</div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <header id="home" class="header">
+        <h1 data-lang-zh="开启你的吉他之旅" data-lang-en="Start Your Guitar Journey">开启你的吉他之旅</h1>
+        <p data-lang-zh="专业的一对一吉他教学，让你轻松掌握吉他技巧" data-lang-en="Professional one-on-one guitar lessons to help you master guitar skills effortlessly">专业的一对一吉他教学，让你轻松掌握吉他技巧</p>
+        <a href="#contact" class="cta-button" data-lang-zh="预约免费试课" data-lang-en="Book Free Trial Lesson">预约免费试课</a>
+    </header>
+
+    <section id="courses" class="section courses">
+        <div class="container">
+            <h2 data-lang-zh="课程介绍" data-lang-en="Our Courses">课程介绍</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="video-container">
+                        <div class="video-placeholder" data-video-id="BV1234567890" onclick="loadVideo(this)">
+                            <div class="play-icon">▶️</div>
+                            <div class="video-description" data-lang-zh="吉他弹唱示范视频" data-lang-en="Guitar Sing-Along Demo Video">吉他弹唱示范视频</div>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang-zh="入门课程" data-lang-en="Beginner Course">入门课程</h3>
+                        <p data-lang-zh="适合零基础学习者，掌握基本弹奏技巧和乐理知识。课程内容包括：基础乐理知识、基本和弦掌握、节奏训练、简单弹唱技巧。" 
+                           data-lang-en="Perfect for beginners to learn basic playing techniques and music theory. Course content includes: basic music theory, essential chords, rhythm training, and simple sing-along skills.">适合零基础学习者，掌握基本弹奏技巧和乐理知识。课程内容包括：基础乐理知识、基本和弦掌握、节奏训练、简单弹唱技巧。</p>
+                        <div class="price-info">
+                            <div class="price-item" data-lang-zh="课时费用：$30/课时" data-lang-en="Lesson Fee: $30/lesson">课时费用：$30/课时</div>
+                            <div class="price-item" data-lang-zh="课程期数：12节课/期" data-lang-en="Course Duration: 12 lessons/term">课程期数：12节课/期</div>
+                            <div class="total-price" data-lang-zh="全期课程：$360" data-lang-en="Full Term: $360">全期课程：$360</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="video-container">
+                        <div class="video-placeholder" data-video-id="BV0987654321" onclick="loadVideo(this)">
+                            <div class="play-icon">▶️</div>
+                            <div class="video-description" data-lang-zh="吉他指弹示范视频" data-lang-en="Guitar Fingerstyle Demo Video">吉他指弹示范视频</div>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 data-lang-zh="专业课程" data-lang-en="Advanced Course">专业课程</h3>
+                        <p data-lang-zh="适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、即兴演奏训练、舞台表演技巧、音乐编曲方法。" 
+                           data-lang-en="For experienced players, focusing on advanced techniques and professional performance. Course content includes: advanced fingerstyle, improvisation training, stage performance skills, and music arrangement methods.">适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、即兴演奏训练、舞台表演技巧、音乐编曲方法。</p>
+                        <div class="price-info">
+                            <div class="price-item" data-lang-zh="课时费用：$40/课时" data-lang-en="Lesson Fee: $40/lesson">课时费用：$40/课时</div>
+                            <div class="price-item" data-lang-zh="课程期数：12节课/期" data-lang-en="Course Duration: 12 lessons/term">课程期数：12节课/期</div>
+                            <div class="total-price" data-lang-zh="全期课程：$480" data-lang-en="Full Term: $480">全期课程：$480</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 data-lang-zh="关于我" data-lang-en="About Me">关于我</h2>
+            <div class="teacher-info">
+                <img src="/api/placeholder/200/200" alt="教师照片" class="teacher-image">
+                <div class="teacher-bio">
+                    <p data-lang-zh="专业吉他教师，拥有10年以上教学经验。毕业于某音乐学院，擅长古典吉他和指弹风格。曾获得多个吉他比赛奖项，培养了众多优秀学员。" 
+                       data-lang-en="Professional guitar teacher with over 10 years of teaching experience. Graduated from a prestigious music academy, specialized in classical guitar and fingerstyle. Won multiple guitar competition awards and trained many excellent students.">
+                        专业吉他教师，拥有10年以上教学经验。毕业于某音乐学院，擅长古典吉他和指弹风格。曾获得多个吉他比赛奖项，培养了众多优秀学员。
+                    </p>
+                    <p data-lang-zh="教学理念：因材施教，注重基础训练，让学员在轻松愉快的氛围中掌握吉他技巧。" 
+                       data-lang-en="Teaching philosophy: Personalized instruction, focus on fundamental training, help students master guitar skills in a relaxed and enjoyable atmosphere.">
+                        教学理念：因材施教，注重基础训练，让学员在轻松愉快的氛围中掌握吉他技巧。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 data-lang-zh="联系方式" data-lang-en="Contact">联系方式</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📱</i>
+                    <p>电话:123-4567-8900</p>
+                </div>
+                <div class="contact-item">
+                    <i>🗨️</i>
+                    <p data-lang-zh="微信:sxzzhpy" data-lang-en="WeChat: sxzzhpy">微信:sxzzhpy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-zh="版权所有 &copy; 2025" data-lang-en="All Rights Reserved &copy; 2025">版权所有 &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
