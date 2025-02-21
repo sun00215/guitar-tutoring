@@ -1,4 +1,3 @@
-
 // 页面滚动时改变导航栏样式
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.nav');
@@ -62,3 +61,66 @@ function loadVideo(element) {
     iframe.setAttribute('scrolling', 'no');
     element.parentNode.replaceChild(iframe, element);
 }
+
+// 移动端菜单控制
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// 点击导航链接时关闭菜单
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// 添加汉堡菜单样式
+const hamburgerStyle = document.createElement('style');
+hamburgerStyle.textContent = `
+    .hamburger {
+        display: none;
+        width: 30px;
+        height: 20px;
+        position: relative;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-color);
+        position: absolute;
+        transition: all 0.3s;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { top: 18px; }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 9px;
+    }
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+    }
+`;
+
+document.head.appendChild(hamburgerStyle);

@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>优质吉他课程 - 开启你的音乐之旅</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <body>
     <nav class="nav">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="#home" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
             <li><a href="#courses" data-lang-zh="课程" data-lang-en="Courses">课程</a></li>
@@ -36,7 +42,7 @@
             <div class="course-grid">
                 <div class="course-card">
                     <div class="video-container">
-                        <div class="video-placeholder" data-video-id="BV1234567890" onclick="loadVideo(this)">
+                        <div class="video-placeholder" data-video-id="BV1Rh4y1K78n" onclick="loadVideo(this)">
                             <div class="play-icon">▶️</div>
                             <div class="video-description" data-lang-zh="吉他弹唱示范视频" data-lang-en="Guitar Sing-Along Demo Video">吉他弹唱示范视频</div>
                         </div>
@@ -44,7 +50,7 @@
                     <div class="course-content">
                         <h3 data-lang-zh="入门课程" data-lang-en="Beginner Course">入门课程</h3>
                         <p data-lang-zh="适合零基础学习者，掌握基本弹奏技巧和乐理知识。课程内容包括：基础乐理知识、基本和弦掌握、节奏训练、简单弹唱技巧。" 
-                           data-lang-en="Perfect for beginners to learn basic playing techniques and music theory. Course content includes: basic music theory, essential chords, rhythm training, and simple sing-along skills.">适合零基础学习者，掌握基本弹奏技巧和乐理知识。课程内容包括：基础乐理知识、基本和弦掌握、节奏训练、简单弹唱技巧。</p>
+                           data-lang-en="Perfect for beginners to learn basic playing techniques and music theory. Course content includes: basic music theory, essential chords, rhythm training, and Sing & Play Songs.">适合零基础学习者，掌握基本弹奏技巧和乐理知识。课程内容包括：基础乐理知识、基本和弦掌握、节奏训练、歌曲弹唱。</p>
                         <div class="price-info">
                             <div class="price-item" data-lang-zh="课时费用：$30/课时" data-lang-en="Lesson Fee: $30/lesson">课时费用：$30/课时</div>
                             <div class="price-item" data-lang-zh="课程期数：12节课/期" data-lang-en="Course Duration: 12 lessons/term">课程期数：12节课/期</div>
@@ -54,15 +60,19 @@
                 </div>
                 <div class="course-card">
                     <div class="video-container">
-                        <div class="video-placeholder" data-video-id="BV0987654321" onclick="loadVideo(this)">
-                            <div class="play-icon">▶️</div>
-                            <div class="video-description" data-lang-zh="吉他指弹示范视频" data-lang-en="Guitar Fingerstyle Demo Video">吉他指弹示范视频</div>
+                        <div class="video-placeholder" 
+                             data-video-id="BV1pT4y157QQ" 
+                             onclick="loadVideo(this)">
+                            <div class="play-icon"></div>
+                            <div class="video-description" data-lang-zh="吉他指弹示范视频" data-lang-en="Guitar Fingerstyle Demo Video">
+                                吉他指弹示范视频
+                            </div>
                         </div>
                     </div>
                     <div class="course-content">
                         <h3 data-lang-zh="专业课程" data-lang-en="Advanced Course">专业课程</h3>
-                        <p data-lang-zh="适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、即兴演奏训练、舞台表演技巧、音乐编曲方法。" 
-                           data-lang-en="For experienced players, focusing on advanced techniques and professional performance. Course content includes: advanced fingerstyle, improvisation training, stage performance skills, and music arrangement methods.">适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、即兴演奏训练、舞台表演技巧、音乐编曲方法。</p>
+                        <p data-lang-zh="适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、指弹曲目演奏、舞台表演技巧、音乐编曲方法。" 
+                           data-lang-en="For experienced players, focusing on advanced techniques and professional performance. Course content includes: advanced fingerstyle, fingerstyle repertoire, stage performance skills, and music arrangement methods.">适合有基础的学习者，专注于进阶技巧与专业演奏。课程内容包括：高级指弹技巧、指弹曲目演奏、舞台表演技巧、音乐编曲方法。</p>
                         <div class="price-info">
                             <div class="price-item" data-lang-zh="课时费用：$40/课时" data-lang-en="Lesson Fee: $40/lesson">课时费用：$40/课时</div>
                             <div class="price-item" data-lang-zh="课程期数：12节课/期" data-lang-en="Course Duration: 12 lessons/term">课程期数：12节课/期</div>
@@ -80,13 +90,20 @@
             <div class="teacher-info">
                 <img src="/assets/images.jpeg" alt="教师照片" class="teacher-image">
                 <div class="teacher-bio">
-                    <p data-lang-zh="专业吉他教师，拥有7年以上教学经验。擅长吉他弹唱和指弹风格。曾获得多个吉他比赛奖项，培养了众多优秀学员。" 
-                       data-lang-en="Professional guitar teacher with over 10 years of teaching experience,specialized in guitar sing-along and fingerstyle. Won multiple guitar competition awards and trained many excellent students.">
-                        专业吉他教师，拥有7年以上教学经验。擅长吉他弹唱和指弹风格。曾获得多个吉他比赛奖项，培养了众多优秀学员。
+                    <p data-lang-zh="专业吉他教师，拥有7年以上教学与演出经验，精通弹唱和指弹风格。丰富的实战与教学经验，能够帮助学员快速掌握吉他技巧，找到属于自己的音乐风格。" 
+                       data-lang-en="A professional guitar instructor with over 7 years of teaching and performance experience, specializing in fingerstyle and sing-and-play techniques. With extensive hands-on and teaching experience, I help students quickly master guitar skills and discover their unique musical style.">
+                        专业吉他教师，拥有7年以上教学与演出经验，精通弹唱和指弹风格。丰富的实战与教学经验，能够帮助学员快速掌握吉他技巧，找到属于自己的音乐风格。
                     </p>
-                    <p data-lang-zh="教学理念：因材施教，注重基础训练，让学员在轻松愉快的氛围中掌握吉他技巧。" 
-                       data-lang-en="Teaching philosophy: Personalized instruction, focus on fundamental training, help students master guitar skills in a relaxed and enjoyable atmosphere.">
-                        教学理念：因材施教，注重基础训练，让学员在轻松愉快的氛围中掌握吉他技巧。
+                    <p>
+                        <span class="philosophy-title" data-lang-zh="教学理念：" data-lang-en="Teaching Philosophy: ">教学理念：</span>
+                        <span data-lang-zh="因材施教，注重基础训练，让你在轻松愉快的氛围中学会吉他，享受音乐的乐趣！" 
+                              data-lang-en="Personalized instruction with a strong foundation, ensuring students learn guitar in a fun, relaxed, and effective way while enjoying the beauty of music.">
+                            因材施教，注重基础训练，让你在轻松愉快的氛围中学会吉他，享受音乐的乐趣！
+                        </span>
+                    </p>
+                    <p class="highlight-text" data-lang-zh="🎸 无论是零基础入门，还是想要提升技巧，这里都有适合你的课程！" 
+                       data-lang-en="🎸 Whether you're a complete beginner or looking to refine your skills, there's a perfect course for you!">
+                        🎸 无论是零基础入门，还是想要提升技巧，这里都有适合你的课程！
                     </p>
                 </div>
             </div>
@@ -98,20 +115,31 @@
             <h2 data-lang-zh="联系方式" data-lang-en="Contact">联系方式</h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i>📱</i>
-                    <p>电话:123-4567-8900</p>
+                    <i class="fas fa-phone-alt"></i>
+                    <p data-lang-zh="电话: 613-878-0417" data-lang-en="Phone: 613-878-0417">
+                        电话: 613-878-0417
+                    </p>
                 </div>
                 <div class="contact-item">
-                    <i>🗨️</i>
-                    <p data-lang-zh="微信:sxzzhpy" data-lang-en="WeChat: sxzzhpy">微信:sxzzhpy</p>
+                    <i class="fab fa-weixin"></i>
+                    <p data-lang-zh="微信: sxzzhpy" data-lang-en="WeChat: sxzzhpy">
+                        微信: sxzzhpy
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p data-lang-zh="版权所有 &copy; 2025" data-lang-en="All Rights Reserved &copy; 2025">版权所有 &copy; 2025</p>
+        <div class="footer-content">
+            <p class="copyright" data-lang-zh="© 2025 summer的吉他教室" data-lang-en="© 2025 Summer's Guitar Studio">
+                © 2025 summer的吉他教室
+            </p>
+            <div class="footer-links">
+                <a href="#courses" data-lang-zh="课程" data-lang-en="Courses">课程</a>
+                <a href="#about" data-lang-zh="关于我" data-lang-en="About">关于我</a>
+                <a href="#contact" data-lang-zh="联系方式" data-lang-en="Contact">联系方式</a>
+            </div>
         </div>
     </footer>
 
