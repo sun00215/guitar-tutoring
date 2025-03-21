@@ -42,6 +42,9 @@ function changeLanguage(lang) {
         element.textContent = element.getAttribute('data-lang-' + lang);
     });
     languageOptions.classList.remove('show');
+    
+    // 保存用户语言偏好
+    localStorage.setItem('preferredLanguage', lang);
 }
 
 // 为每个语言选项添加点击事件
@@ -79,48 +82,103 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// 添加汉堡菜单样式
-const hamburgerStyle = document.createElement('style');
-hamburgerStyle.textContent = `
-    .hamburger {
-        display: none;
-        width: 30px;
-        height: 20px;
-        position: relative;
-    }
+// 联系方式交互功能
+function callPhone(phoneNumber) {
+    window.location.href = `tel:${phoneNumber}`;
+}
 
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: var(--text-color);
-        position: absolute;
-        transition: all 0.3s;
-    }
+function copyWechat(wechatId) {
+    navigator.clipboard.writeText(wechatId)
+        .then(() => {
+            showToast();
+        })
+        .catch(err => {
+            // 如果剪贴板API不可用，使用备用方法
+            const textArea = document.createElement('textarea');
+            textArea.value = wechatId;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('无法复制文本: ', err);
+                alert('微信号: ' + wechatId);
+            }
+            
+            document.body.removeChild(textArea);
+        });
+}
 
-    .hamburger span:nth-child(1) { top: 0; }
-    .hamburger span:nth-child(2) { top: 9px; }
-    .hamburger span:nth-child(3) { top: 18px; }
+function showToast() {
+    const toast = document.getElementById('copyToast');
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
 
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg);
-        top: 9px;
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg);
-        top: 9px;
-    }
-
-    @media (max-width: 768px) {
-        .hamburger {
-            display: block;
+// 添加动画类到元素
+function addAnimationClasses() {
+    const elementsToAnimate = document.querySelectorAll('.section h2, .course-card, .contact-item, .teacher-image');
+    
+    // 创建一个 Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target); // 只触发一次动画
+            }
+        });
+    }, {
+        threshold: 0.1, // 当元素10%可见时触发
+        rootMargin: '0px 0px -50px 0px' // 提前触发动画
+    });
+    
+    // 为每个元素添加观察
+    elementsToAnimate.forEach((element, index) => {
+        // 添加延迟类
+        if (element.classList.contains('course-card') || element.classList.contains('contact-item')) {
+            const delay = index % 3; // 创建交错效果
+            element.classList.add(`delay-${delay + 1}`);
         }
-    }
-`;
+        observer.observe(element);
+    });
+}
 
-document.head.appendChild(hamburgerStyle);
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', () => {
+    // 检查是否有保存的语言偏好
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        changeLanguage(savedLanguage);
+    }
+    
+    // 添加动画类
+    addAnimationClasses();
+});
+
+// 防止过度滚动行为，提升用户体验
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            e.preventDefault();
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
