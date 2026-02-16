@@ -87,6 +87,15 @@ function callPhone(phoneNumber) {
     window.location.href = `tel:${phoneNumber}`;
 }
 
+document.querySelectorAll('.contact-item').forEach((el) => {
+    el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            el.click();
+        }
+    });
+});
+
 function copyWechat(wechatId) {
     navigator.clipboard.writeText(wechatId)
         .then(() => {

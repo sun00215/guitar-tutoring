@@ -1,5 +1,5 @@
 :root {
-    font-size: 16px; /* 基准字体大小 */
+    font-size: 18px;
     --primary-color: #6E8C6D;
     --secondary-color: #A69D8D;
     --accent-color: #736453;
@@ -16,6 +16,8 @@
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
+    --container-max: 1200px;
+    --content-max: 1000px;
 }
 
 * {
@@ -51,7 +53,7 @@ a {
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     width: 100%;
@@ -81,6 +83,11 @@ a {
 
 .cta-button:active {
     transform: translateY(0);
+}
+
+.cta-button:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
 }
 
 /* Header */
@@ -168,6 +175,11 @@ a {
     width: 100%;
 }
 
+.nav-links a:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 4px;
+}
+
 /* Language Switch */
 .language-switch {
     position: relative;
@@ -187,6 +199,11 @@ a {
 
 .language-btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-btn:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
 }
 
 .language-options {
@@ -224,6 +241,11 @@ a {
     background-color: var(--light-bg);
 }
 
+.language-option:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+}
+
 /* Section Styling */
 .section {
     padding: var(--spacing-xl) var(--spacing-md);
@@ -236,10 +258,7 @@ a {
     color: var(--primary-color);
     margin-bottom: var(--spacing-xl);
     position: relative;
-    display: block;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .section h2::after {
@@ -253,11 +272,9 @@ a {
     transform: translateX(-50%);
 }
 
-/* 为"关于我"和"联系方式"标题设置左对齐 */
-.about h2, .contact h2 {
+.about h2,
+.contact h2 {
     text-align: left;
-    margin-left: 0;
-    max-width: 1000px;
 }
 
 .about h2::after, .contact h2::after {
@@ -273,8 +290,8 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
-    max-width: 1000px;
+    margin-top: var(--spacing-lg);
+    max-width: var(--content-max);
     margin-left: auto;
     margin-right: auto;
 }
@@ -411,6 +428,11 @@ a {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.video-placeholder:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 4px;
+}
+
 .course-content {
     padding: var(--spacing-md);
     flex: 1;
@@ -432,7 +454,7 @@ a {
 }
 
 .price-info {
-    margin-top: var(--spacing-md);
+    margin-top: auto;
     padding-top: var(--spacing-sm);
     border-top: 1px solid var(--light-bg);
 }
@@ -461,7 +483,7 @@ a {
     gap: var(--spacing-lg);
     align-items: flex-start;
     margin-top: var(--spacing-lg);
-    max-width: 1000px;
+    max-width: var(--content-max);
     margin-left: auto;
     margin-right: auto;
 }
@@ -486,11 +508,13 @@ a {
     line-height: 1.8;
     font-size: 1.1rem;
     text-align: justify;
-    word-break: normal;
-    word-spacing: normal;
 }
 
-.teacher-bio p:first-child {
+.teacher-bio p:last-child {
+    margin-bottom: 0;
+}
+
+.teacher-bio p:first-of-type {
     text-indent: 2em;
 }
 
@@ -500,12 +524,12 @@ a {
     margin-right: 0.5em;
 }
 
-.highlight-text {
+.teacher-bio .highlight-text {
     color: var(--primary-color);
     font-weight: 500;
     font-size: 1.2rem;
     padding: var(--spacing-sm) 0;
-    text-align: left !important;
+    text-align: left;
     line-height: 1.6;
 }
 
@@ -516,10 +540,10 @@ a {
 }
 
 .contact-info {
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
     display: flex;
     justify-content: center;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     flex-wrap: wrap;
 }
 
@@ -566,7 +590,13 @@ a {
     transform: translateY(0);
 }
 
-.contact-item i, .contact-item p {
+.contact-item:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.contact-item i,
+.contact-item p {
     position: relative;
     z-index: 2;
 }
@@ -627,7 +657,7 @@ a {
 }
 
 .footer-content {
-    max-width: 75rem;
+    max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     display: flex;
@@ -659,6 +689,11 @@ a {
 
 .footer-links a:hover {
     opacity: 1;
+}
+
+.footer-links a:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
 }
 
 /* Mobile Navigation */
